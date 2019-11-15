@@ -17,23 +17,25 @@ class WebstoreController extends Controller
     public function addToCart(Product $product)
     {   
         if($product->price <= 0) return redirect('/home');
-        Cart::add($product->id, $product->name, 1, $product->price);
-       
-        return redirect('/home')->withSuccess("Anadido a $product->name a tu carrito");
+
+        if($product->name) {
+            Cart::add($product->id, $product->name, 1, $product->price);
+            return redirect('/home')->withSuccess("Anadido a $product->name a tu carrito");
+        }
+        
     }
     # Our function for removing a certain product from the cart
     public function removeProductFromCart($productId)
     {    
-         $existe = true;
-         
-         Cart::content()->search(function ($cartItem, $productId)  {
-            if($cartItem->rowId === $productId) {
-              return;
-            } else {
-                $existe = false;
+         $existe = null;
+         foreach(Cart::content() as $row) {
+            if($row->rowId === $productId) {
+                $existe = true;
+                break;
             }
-             
-        });
+            $existe = false;
+
+        }
         
         if($existe) {
             
