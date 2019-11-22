@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Cart;
-class WebstoreController extends Controller
+class AppstoreController extends Controller
 {
     public function index()
     {

@@ -19,7 +19,6 @@
         <header>
             @include('partials/nav')
         </header>
-
         <main class="py-4">
             
             
