@@ -1,22 +1,18 @@
 <template>
   <div class="container">
-  	<nav class="navbar navbar-light bg-white navbar-expand-md shadow-sm">
-	<!-- <a href="{{ route('home')}}" class="navbar-brand">
-                {{ config('app.name')}}
-            </a> -->
+  	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	   <a class="navbar-brand" href="/">
+	   <img v-bind:src="'/images/Logo.jpg'" height="75px"></img>
+	   </a>
 
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button> 
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="nav nav-pills">
-
-	    	<!-- Es importante que en "routeIs" ocupemos en NOMBRE de la ruta -->
-                <!-- {{--<li class=" {{ request()->routeIs('home') ? 'active' : '' }}" ><a href="/">Home</a></li> --}} -->
-	      <li class=" nav-item">
-	      	<!-- <a class="nav-link {{ modoActivo('home') }}" href="{{ route('home') }}">Inicio</a> -->
-	 	  	<router-link to="/"  :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Home &sol;&gt;", "Home")}}</router-link>
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	 	  	<router-link to="/"  class="nav-item active" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Home &sol;&gt;", "Home")}}</router-link>
 	      </li>
 
 	      <li class=" nav-item">
@@ -102,24 +98,24 @@
                 </div>
             </div>
 
-            @can('products.index')
+            <!-- @can('products.index') -->
                 <li class="nav-item">
                     <!-- <a class="nav-link" href="{{route('products.index') }}">Productos</a> -->
                 </li>
-                @endcan
+              <!--   @endcan
                 @can('users.index')
-                <li class="nav-item">
+  -->               <li class="nav-item">
                     <!-- <a class="nav-link" href="{{route('users.index') }}">Usuarios</a> -->
                 </li>
-                @endcan
-                @can('roles.index') <!--Nombre del permiso-->
+                <!-- @endcan -->
+                <!-- @can('roles.index') Nombre del permiso -->
                 <li class="nav-item">
                     <!-- <a class="nav-link" href="{{route('roles.index') }}">Roles</a> <!--Nombre de la ruta--> -->
                 </li>
-                @endcan
+                <!-- @endcan -->
                 
 
-                @else 
+                <!-- @else  -->
 
                     <li class="nav-item">
                         <!-- <a class="nav-link {{ modoActivo( 'login' )}}" href="{{ route('login') }}"> -->
@@ -129,7 +125,7 @@
                     <li class="nav-item">
                         <!-- <a class="nav-link {{ modoActivo( 'register' )}}" href="{{ route('register') }}">Registro</a> -->
                     </li>
-                @endauth
+                <!-- @endauth -->
 	    </ul>
 	</div>
 	</nav><!-- 

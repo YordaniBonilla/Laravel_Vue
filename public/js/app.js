@@ -2053,10 +2053,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Nav',
   methods: {
@@ -38124,10 +38120,14 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c(
       "nav",
-      {
-        staticClass: "navbar navbar-light bg-white navbar-expand-md shadow-sm"
-      },
+      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
       [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+          _c("img", { attrs: { src: "/images/Logo.jpg", height: "75px" } })
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
         _c(
           "div",
           {
@@ -38135,14 +38135,15 @@ var render = function() {
             attrs: { id: "navbarSupportedContent" }
           },
           [
-            _c("ul", { staticClass: "nav nav-pills" }, [
+            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
               _c(
                 "li",
-                { staticClass: " nav-item" },
+                { staticClass: "nav-item active" },
                 [
                   _c(
                     "router-link",
                     {
+                      staticClass: "nav-item active",
                       class: _vm.isCurrentPage("/") && "color1",
                       attrs: { to: "/" }
                     },
@@ -38194,7 +38195,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
                 _vm._v(
@@ -38202,33 +38203,23 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(1),
-              _vm._v(
-                "\n\n            @can('products.index')\n                "
-              ),
+              _vm._m(2),
+              _vm._v(" "),
               _c("li", { staticClass: "nav-item" }),
-              _vm._v(
-                "\n                @endcan\n                @can('users.index')\n                "
-              ),
+              _vm._v(" "),
               _c("li", { staticClass: "nav-item" }),
-              _vm._v(
-                "\n                @endcan\n                @can('roles.index') "
-              ),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
                 _vm._v(" -->\n                ")
               ]),
-              _vm._v(
-                "\n                @endcan\n                \n\n                @else \n\n                    "
-              ),
+              _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
                 _vm._v(
                   "\n                            Iniciar sesion\n                        "
                 )
               ]),
               _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }),
-              _vm._v("\n                @endauth\n\t    ")
+              _c("li", { staticClass: "nav-item" })
             ])
           ]
         )
@@ -38239,6 +38230,26 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
