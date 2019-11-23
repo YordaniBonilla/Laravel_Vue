@@ -2,26 +2,30 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Cart;
+use Illuminate\Http\Request;
 class AppstoreController extends Controller
 {
     public function index()
     {
-        # We pass all the products from the database into
-        # the $products variable, which is an array
+   
+        return view('home');
+    }
+    public function getProducts() {
         $products = Product::all();
-        # We use the home view for the tutorial, but you could
-        # use other views too. Home will be our webstore view
-        return view('home')->with('products', $products);
+
+        return response()->json($products); 
     }
     # Our function for adding a certain product to the cart
     public function addToCart(Product $product)
     {   
-        if($product->price <= 0) return redirect('/home');
+        // return response()->json($product);
+          if($product->price <= 0) return response()->json('Nothing is free');
 
-        if($product->name) {
-            Cart::add($product->id, $product->name, 1, $product->price);
-            return redirect('/home')->withSuccess("Anadido a $product->name a tu carrito");
-        }
+          if($product->name) {
+              Cart::add($product->id, $product->name, 1, $product->price);
+               // return redirect('/home')->withSuccess("Anadido a $product->name a tu carrito");
+              return response()->json('Succefully added');
+          }
         
     }
     # Our function for removing a certain product from the cart

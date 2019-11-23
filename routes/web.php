@@ -1,11 +1,11 @@
 <?php	
 
 # Hacemos update al argumento de closure a funcion index de nuestro controlador
-Route::get('/{any}', 'AppstoreController@index')->where('any', '.*');
-
+Route::get('/', 'AppstoreController@index');
+Route::get('/cartProducts', 'AppstoreController@getProducts');
 //Rutas sin Login
-// route::view('/contacto', 'contacto')->name('contacto');
-// route::post('contacto', 'ContactoController@store');
+ //route::view('/contacto', 'contacto')->name('contacto');
+ //route::post('contacto', 'ContactoController@store');
 // route::view('/nosotros','nosotros')->name('nosotros');
 
 // Route::middleware(['auth'])->group(function () {
@@ -13,8 +13,8 @@ Route::get('/{any}', 'AppstoreController@index')->where('any', '.*');
 // 	Route::post('roles/store', 'RoleController@store')->name('roles.store')
 // 		->middleware('permission:roles.create');
 
-// 	Route::get('roles', 'RoleController@index')->name('roles.index')
-// 		->middleware('permission:roles.index');
+ 	//Route::get('roles', 'RoleController@index')->name('roles.index')
+ 	//	->middleware('permission:roles.index');
 
 // 	Route::get('roles/create', 'RoleController@create')->name('roles.create')
 // 		->middleware('permission:roles.create');
@@ -67,7 +67,7 @@ Route::get('/{any}', 'AppstoreController@index')->where('any', '.*');
 // 	Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
 // 		->middleware('permission:products.edit');
 //         # Agregando producto al carro
-//     Route::get('/add/{product}', 'WebstoreController@addToCart')->name('add');
+     Route::post('/add/{product}', 'AppstoreController@addToCart');
 //     # Remover producto del carro
 //     Route::get('/remove/{productId}', 'WebstoreController@removeProductFromCart')->name('remove');
 //     # Quitar toda la mercancia del carrito vaciarlo

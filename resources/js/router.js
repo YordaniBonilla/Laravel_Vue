@@ -10,7 +10,7 @@ export default new VueRouter({
 	routes: [
 		{ path: '/', component: Home },
 		{ path: '/contact-us', component: ContactForm},
-		{ path: '/us', component: Us }
+		{ path: '/us', component: Us },
 	],
 	mode: 'history'
 });

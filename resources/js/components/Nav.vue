@@ -10,22 +10,20 @@
 		</button> 
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	 	  	<router-link to="/"  class="nav-item active" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Home &sol;&gt;", "Home")}}</router-link>
+	    <ul class="nav nav-pills nav-fill">
+	      <li class=" nav-item ">
+	 	  	<router-link to="/"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Home &sol;&gt;", "Home")}}</router-link>
 	      </li>
 
 	      <li class=" nav-item">
-	      	<!-- <a class="nav-link {{ modoActivo( 'contacto' )}}" href="{{ route('contacto')}}">Contactanos</a> -->
-	 	  	<router-link to="/contact-us" :class="isCurrentPage('/contact-us') && 'color1'" >{{select('/contact-us',"&lt; Contacto &sol;&gt;", "Contacto")}}</router-link>
+	 	  	<router-link to="/contact-us" class="nav-link" :class="isCurrentPage('/contact-us') && 'color1'" >{{select('/contact-us',"&lt; Contacto &sol;&gt;", "Contacto")}}</router-link>
 	      </li>
 
 	      <li class=" nav-item">
-	      	 <!-- <a class="nav-link {{ modoActivo( 'nosotros' )}}" href="{{ route('nosotros') }}">Nosotros</a> -->
-	 	  	<router-link to="/us" :class="isCurrentPage('/us') && 'color1'" >{{select('/us',"&lt; Nosotros &sol;&gt;", "Nosotros")}}</router-link>
+	 	  	<router-link to="/us" class="nav-link" :class="isCurrentPage('/us') && 'color1'" >{{select('/us',"&lt; Nosotros &sol;&gt;", "Nosotros")}}</router-link>
 	      </li>
            <!-- @auth only -->
-	       <li class="nav-item dropdown">
+	       <li class="nav-item dropdown ">
                     <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#shoppingCartModal">
                         Cart
@@ -110,7 +108,8 @@
                 <!-- @endcan -->
                 <!-- @can('roles.index') Nombre del permiso -->
                 <li class="nav-item">
-                    <!-- <a class="nav-link" href="{{route('roles.index') }}">Roles</a> <!--Nombre de la ruta--> -->
+                	<router-link to="/roles"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Roles &sol;&gt;", "Roles")}}</router-link>
+                    <!-- <a class="nav-link" href="{{route('roles.index') }}">Roles</a> <Nombre de la ruta--> -->
                 </li>
                 <!-- @endcan -->
                 
@@ -118,11 +117,13 @@
                 <!-- @else  -->
 
                     <li class="nav-item">
+                    	<router-link to="/login"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Login &sol;&gt;", "Login")}}</router-link>
                         <!-- <a class="nav-link {{ modoActivo( 'login' )}}" href="{{ route('login') }}"> -->
                             Iniciar sesion
                         </a>
                     </li>
                     <li class="nav-item">
+                    	<router-link to="/register"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Register &sol;&gt;", "Register")}}</router-link>
                         <!-- <a class="nav-link {{ modoActivo( 'register' )}}" href="{{ route('register') }}">Registro</a> -->
                     </li>
                 <!-- @endauth -->
@@ -144,8 +145,8 @@
 	export default {
 		name: 'Nav',
 		methods: {
-          isCurrentPage: function(path) {
-    	    if(this.$route.path == path) {
+          isCurrentPage: function(url) {
+    	    if(this.$route.path == url) {
         	  return true
         	} 
           	return false
@@ -171,9 +172,8 @@
 <style scoped >
 
   .color1 {
-	background: url();
 	color: red;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid brown;
 
   }
   a {
