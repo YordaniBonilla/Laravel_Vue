@@ -87,11 +87,6 @@
 			    });
 			}
 		},
-		watch: {
-			products() {
-				console.log(this.products);
-			}
-		},
 		mounted() {
 			this.axios.get('/cartProducts').then(({data}) => this.products = data);
 		}

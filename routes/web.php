@@ -68,6 +68,7 @@ Route::get('/cartProducts', 'AppstoreController@getProducts');
 // 		->middleware('permission:products.edit');
 //         # Agregando producto al carro
      Route::post('/add/{product}', 'AppstoreController@addToCart');
+     Route::get('/getCartContent', 'AppstoreController@getCartContent');
 //     # Remover producto del carro
 //     Route::get('/remove/{productId}', 'WebstoreController@removeProductFromCart')->name('remove');
 //     # Quitar toda la mercancia del carrito vaciarlo

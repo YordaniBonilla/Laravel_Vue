@@ -1983,11 +1983,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  watch: {
-    products: function products() {
-      console.log(this.products);
-    }
-  },
   mounted: function mounted() {
     var _this = this;
 
@@ -2152,8 +2147,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Nav',
+  data: function data() {
+    return {
+      cartContent: []
+    };
+  },
   methods: {
     isCurrentPage: function isCurrentPage(url) {
       if (this.$route.path == url) {
@@ -2170,7 +2172,14 @@ __webpack_require__.r(__webpack_exports__);
       return defaultOption;
     }
   },
-  computed: {}
+  mounted: function mounted() {
+    var _this = this;
+
+    this.axios.get('/getCartContent').then(function (_ref) {
+      var data = _ref.data;
+      return _this.cartContent = data;
+    });
+  }
 });
 
 /***/ }),
@@ -38415,7 +38424,78 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(2),
+              _c(
+                "div",
+                {
+                  staticClass: "modal fade",
+                  attrs: {
+                    id: "shoppingCartModal",
+                    tabindex: "-1",
+                    role: "dialog",
+                    "aria-labelledby": "shoppingCartModalTitle",
+                    "aria-hidden": "true"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog modal-dialog-centered",
+                      attrs: { role: "document" }
+                    },
+                    [
+                      _c("div", { staticClass: "modal-content" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-body" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-bordered" },
+                            [
+                              _vm._m(3),
+                              _vm._v(" "),
+                              _vm._l(_vm.cartContent, function(cartItem) {
+                                return _c("tbody", [
+                                  _c("tr", [
+                                    _c("td"),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(" " + _vm._s(cartItem.name))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(" " + _vm._s(cartItem.qty))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        " " + _vm._s(cartItem.price) + "USD"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        " " + _vm._s(cartItem.price) + "USD"
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(
+                                    "\n                                @endforeach\n                                "
+                                  ),
+                                  _vm._m(4, true)
+                                ])
+                              })
+                            ],
+                            2
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-footer" })
+                      ])
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }),
               _vm._v(" "),
@@ -38534,95 +38614,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "shoppingCartModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "shoppingCartModalTitle",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "modal-dialog modal-dialog-centered",
-            attrs: { role: "document" }
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "shoppingCartModalTitle" }
-                  },
-                  [_vm._v("Shopping cart")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("table", { staticClass: "table table-bordered" }, [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th"),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Producto")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Cantidad")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Precio")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Total")])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", [_c("td")]),
-                    _vm._v(
-                      "\n                                @endforeach\n                                "
-                    ),
-                    _c("tr", [
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" })
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "shoppingCartModalTitle" } },
+        [_vm._v("Shopping cart")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Producto")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Cantidad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Precio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td"),
+      _vm._v(" "),
+      _c("td"),
+      _vm._v(" "),
+      _c("td"),
+      _vm._v(" "),
+      _c("td")
+    ])
   }
 ]
 render._withStripped = true

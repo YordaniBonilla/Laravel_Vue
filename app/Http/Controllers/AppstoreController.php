@@ -10,6 +10,11 @@ class AppstoreController extends Controller
    
         return view('home');
     }
+    public function getCartContent() {
+        $content = Cart::content();
+
+        return response()->json($content);
+    }
     public function getProducts() {
         $products = Product::all();
 

@@ -61,17 +61,19 @@
                                     <th>Total</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody v-for="cartItem in cartContent">
+
                                 <!-- @foreach(Cart::content() as $cartItem) -->
                                     <tr>
                                         <td>
                                             <!-- Remove product button -->
                                             <!-- <a href="{{ route('remove', [ $cartItem->rowId ]) }}">x</a> -->
                                         </td>
-                                        <!-- <td>{{ $cartItem->name }}</td> -->
-                                        <!-- <td>{{ $cartItem->qty }}</td> -->
-                                        <!-- <td>{{ $cartItem->price }} USD</td> -->
-                                        <!-- <td>{{ number_format($cartItem->price, 2) }} USD</td> -->
+                                         <td> {{ cartItem.name }}</td> 
+                                         <td> {{ cartItem.qty }}</td> 
+                                         <td> {{ cartItem.price }}USD</td> 
+                                         <!-- <td>{{ number_format($cartItem->price, 2) }} USD</td> -->
+                                         <td> {{ cartItem.price }}USD</td>
                                         <!--$cartItem->total fue usado pero dava precio con taxis/iva de donde se le agreo ese impuesto? no lo pude encontrar...0.0?-->
                                     </tr>
                                 @endforeach
@@ -144,6 +146,11 @@
 <script>
 	export default {
 		name: 'Nav',
+        data() {
+            return {
+                cartContent: []
+            }
+        },
 		methods: {
           isCurrentPage: function(url) {
     	    if(this.$route.path == url) {
@@ -158,9 +165,9 @@
     			return defaultOption;
     		}
     	},
-    	computed: {
-    		
-    	}
+    	mounted() {
+            this.axios.get('/getCartContent').then(({data}) => this.cartContent = data)
+        }
 	}
 </script>
 
