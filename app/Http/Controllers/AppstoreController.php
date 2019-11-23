@@ -62,6 +62,6 @@ class AppstoreController extends Controller
     public function destroyCart()
     {
         Cart::destroy();
-        return redirect('/home');
+        return response()->json('Cart Destroyed');
     }
 }

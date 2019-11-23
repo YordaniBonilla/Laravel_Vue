@@ -2187,7 +2187,19 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         return _this.cartContent = data;
       });
-      console.log(this.cartContent);
+    },
+    empty: function empty() {
+      this.axios.get('/empty').then(function (_ref2) {
+        var data = _ref2.data;
+        return console.log(data);
+      });
+      this.getCartContent();
+    },
+    checkout: function checkout() {
+      this.axios.get('checkout').then(function (_ref3) {
+        var data = _ref3.data;
+        return console.log(data);
+      });
     }
   }
 });
@@ -38277,6 +38289,11 @@ var render = function() {
                                     }
                                   },
                                   [_vm._v("Añadir al carrito")]
+                                ),
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(product.descripcion) +
+                                    "\n                                \t\n                                "
                                 )
                               ])
                             ])
@@ -38513,7 +38530,25 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "modal-footer" })
+                        _c("div", { staticClass: "modal-footer" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger",
+                              on: { click: _vm.empty }
+                            },
+                            [_vm._v("Vaciar")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger",
+                              on: { click: _vm.checkout }
+                            },
+                            [_vm._v("Pagar")]
+                          )
+                        ])
                       ])
                     ]
                   )

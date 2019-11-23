@@ -43,7 +43,7 @@
                                             <!--recordar de pasar routekey a funcion-->
 
                                             <button class="btn btn-primary" v-on:click="addToCart(product.id)">Añadir al carrito</button>
-                                        <!-- {{-- {{ $product->descripcion }} --}} -->
+                                            {{ product.descripcion }}
                                 	
                                 </span>
                             </div>

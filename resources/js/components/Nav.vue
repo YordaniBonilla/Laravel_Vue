@@ -90,9 +90,9 @@
                         </div>
                         <div class="modal-footer">
                             <!-- Clear shopping cart button -->
-                            <!-- <a href="{{ route('empty') }}" class="btn btn-danger">Vaciar</a> -->
+                             <button v-on:click="empty" class="btn btn-danger">Vaciar</button> 
                             <!-- Proceed to checkout button -->
-                            <!-- <a href="{{ route('checkout') }}" class="btn btn-primary">Pagar</a> -->
+                            <button v-on:click="checkout" class="btn btn-danger">Pagar</button> 
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,13 @@
            },
            getCartContent() {
             this.axios.get('/getCartContent').then(({data}) => this.cartContent = data);
-            console.log(this.cartContent);
+           },
+           empty() {
+             this.axios.get('/empty').then(({data}) =>  console.log(data));
+             this.getCartContent();
+           },
+           checkout() {
+            this.axios.get('checkout').then(({data}) =>  console.log(data));
            }
     	}
 	}

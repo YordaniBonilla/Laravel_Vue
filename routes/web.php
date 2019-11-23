@@ -72,9 +72,9 @@ Route::get('/cartProducts', 'AppstoreController@getProducts');
 //     # Remover producto del carro
      Route::get('/remove/{productId}', 'AppstoreController@removeProductFromCart')->name('remove');
 //     # Quitar toda la mercancia del carrito vaciarlo
-//     Route::get('/empty', 'WebstoreController@destroyCart')->name('empty');
+    Route::get('/empty', 'AppstoreController@destroyCart')->name('empty');
 //     # PayPal checkout
-//     Route::get('checkout', 'PaypalController@payWithpaypal')->name('checkout');
+    Route::get('checkout', 'PaypalController@payWithpaypal')->name('checkout');
 //     # PayPal status callback
 //     Route::get('status', 'PaypalController@getPaymentStatus');
 
