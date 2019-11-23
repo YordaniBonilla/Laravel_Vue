@@ -70,7 +70,7 @@ Route::get('/cartProducts', 'AppstoreController@getProducts');
      Route::post('/add/{product}', 'AppstoreController@addToCart');
      Route::get('/getCartContent', 'AppstoreController@getCartContent');
 //     # Remover producto del carro
-//     Route::get('/remove/{productId}', 'WebstoreController@removeProductFromCart')->name('remove');
+     Route::get('/remove/{productId}', 'AppstoreController@removeProductFromCart')->name('remove');
 //     # Quitar toda la mercancia del carrito vaciarlo
 //     Route::get('/empty', 'WebstoreController@destroyCart')->name('empty');
 //     # PayPal checkout

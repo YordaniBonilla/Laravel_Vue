@@ -68,6 +68,7 @@
                                         <td>
                                             <!-- Remove product button -->
                                             <!-- <a href="{{ route('remove', [ $cartItem->rowId ]) }}">x</a> -->
+                                            <button class="btn" v-on:click="removeProduct(cartItem.rowId)">X</button>
                                         </td>
                                          <td> {{ cartItem.name }}</td> 
                                          <td> {{ cartItem.qty }}</td> 
@@ -76,7 +77,6 @@
                                          <td> {{ cartItem.price }}USD</td>
                                         <!--$cartItem->total fue usado pero dava precio con taxis/iva de donde se le agreo ese impuesto? no lo pude encontrar...0.0?-->
                                     </tr>
-                                @endforeach
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -163,11 +163,16 @@
     				return ifCorrect;
     			}
     			return defaultOption;
-    		}
-    	},
-    	mounted() {
-            this.axios.get('/getCartContent').then(({data}) => this.cartContent = data)
-        }
+    		},
+           removeProduct(rowId) {
+              this.axios.get(`/remove/${rowId}`).then(response => console.log(response.data));
+              this.getCartContent();
+           },
+           getCartContent() {
+            this.axios.get('/getCartContent').then(({data}) => this.cartContent = data);
+            console.log(this.cartContent);
+           }
+    	}
 	}
 </script>
 

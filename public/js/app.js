@@ -1977,18 +1977,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addToCart: function addToCart(routeKey) {
+      var _this = this;
+
       this.axios.post("/add/".concat(routeKey)).then(function (_ref) {
         var data = _ref.data;
-        console.log(data);
+
+        _this.$parent.getCartContent();
       });
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     this.axios.get('/cartProducts').then(function (_ref2) {
       var data = _ref2.data;
-      return _this.products = data;
+      return _this2.products = data;
     });
   }
 });
@@ -2170,15 +2173,22 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return defaultOption;
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
+    },
+    removeProduct: function removeProduct(rowId) {
+      this.axios.get("/remove/".concat(rowId)).then(function (response) {
+        return console.log(response.data);
+      });
+      this.getCartContent();
+    },
+    getCartContent: function getCartContent() {
+      var _this = this;
 
-    this.axios.get('/getCartContent').then(function (_ref) {
-      var data = _ref.data;
-      return _this.cartContent = data;
-    });
+      this.axios.get('/getCartContent').then(function (_ref) {
+        var data = _ref.data;
+        return _this.cartContent = data;
+      });
+      console.log(this.cartContent);
+    }
   }
 });
 
@@ -38457,7 +38467,22 @@ var render = function() {
                               _vm._l(_vm.cartContent, function(cartItem) {
                                 return _c("tbody", [
                                   _c("tr", [
-                                    _c("td"),
+                                    _c("td", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.removeProduct(
+                                                cartItem.rowId
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("X")]
+                                      )
+                                    ]),
                                     _vm._v(" "),
                                     _c("td", [
                                       _vm._v(" " + _vm._s(cartItem.name))
@@ -38479,9 +38504,7 @@ var render = function() {
                                       )
                                     ])
                                   ]),
-                                  _vm._v(
-                                    "\n                                @endforeach\n                                "
-                                  ),
+                                  _vm._v(" "),
                                   _vm._m(4, true)
                                 ])
                               })

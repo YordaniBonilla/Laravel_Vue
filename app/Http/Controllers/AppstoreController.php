@@ -47,12 +47,13 @@ class AppstoreController extends Controller
         }
         
         if($existe) {
-            
+            $true = true;
             Cart::remove($productId);
             $existe = null;
-            return redirect('/home');
+            return response()->json($true);
         } else {
-            return view('./errors/422');
+            // return view('./errors/422');
+            return response()->json('error');
         }
         
         

@@ -83,8 +83,9 @@
 		methods: {
 			addToCart(routeKey) {
 			    this.axios.post(`/add/${routeKey}`).then(({data}) => {
-			    	console.log(data);	
+			    	this.$parent.getCartContent();	
 			    });
+
 			}
 		},
 		mounted() {
