@@ -16,10 +16,6 @@
 <body>
     
     <div id="app" class="d-flex flex-column h-screen justify-content-between">
-        <header>
-            @include('partials/nav')
-        </header>
-
         <main class="py-4">
             
             
