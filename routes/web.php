@@ -49,8 +49,7 @@ Route::get('/cartProducts', 'AppstoreController@getProducts');
 // 	Route::post('products/store', 'ProductController@store')->name('products.store')
 // 		->middleware('permission:products.create');
 
-// 	Route::get('products', 'ProductController@index')->name('products.index')
-// 		->middleware('permission:products.index');
+ 	Route::get('products', 'ProductController@index')->name('products.index')->middleware('permission:products.index');
 
 // 	Route::get('products/create', 'ProductController@create')->name('products.create')
 // 		->middleware('permission:products.create');

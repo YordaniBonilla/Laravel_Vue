@@ -7,7 +7,6 @@ Vue.prototype.axios = axios;
 
 require('./bootstrap');
 
-Vue.component('Formulario', require('./components/ProductComponent.vue').default);
 
 const app = new Vue({
 	el: '#app',
