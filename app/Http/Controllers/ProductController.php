@@ -12,11 +12,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate();
-
-        return view('products.index', compact('products'));
+        if($request->ajax()){
+        return Product::get();
+        }else{
+            return view('products.index');
+        }
     }
 
     /**
@@ -38,9 +40,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
-        return redirect()->route('products.index' , $product->id)
-        ->with('info','Producto guardado con éxito');
+        $producto = new Product();
+        $producto->name = $request->nombre;
+        $producto->description = $request->descripcion;
+        $producto->price = $request->precio;
+        $producto->save();
+
+        return $producto;
+
+        // $product = Product::create($request->all());
+        // return redirect()->route('products.index' , $product->id)
+        // ->with('info','Producto guardado con éxito');
         
         
     }
@@ -75,23 +85,25 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        $product->update($request->all());
-        return redirect()->route('products.index' , $product->id)
-            ->with('info','Producto actualizado con éxito');
-    }
+        $producto = Product::find($id);
+        $producto->name = $request->nombre;
+        $producto->description = $request->descripcion;
+        $producto->price = $request->precio;
+        $producto->save();
 
+        return $producto;
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        $product->delete();
-
-        return back()->with('info', 'Producto eliminado con éxito');
+        $producto = Product::find($id);
+        $producto->delete();
     }
 }

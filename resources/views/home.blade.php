@@ -35,6 +35,11 @@
                             </div>
                             <div class="col-sm-4">
                                 <span class="text-secondary font-weight-bold">
+                                    {{$product->description}}
+                                </span>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="text-secondary font-weight-bold">
                                     {{ number_format($product->price, 2) }}
                                 </span>
                             </div>
