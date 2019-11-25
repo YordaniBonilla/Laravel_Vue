@@ -1,7 +1,18 @@
 <template>
-
+<div>
 <h1>Hello Contactos</h1>
-
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+<p>otro taco otro taco</p>
+</div>
 </template>
 
 <script>

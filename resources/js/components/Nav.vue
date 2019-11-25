@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  	<nav class="navbar navbar-expand-lg navbar-light bg-light text-dark ">
 	   <a class="navbar-brand" href="/">
 	   <img v-bind:src="'/images/Logo.jpg'" height="75px"></img>
 	   </a>
@@ -16,7 +16,7 @@
 	      </li>
 
 	      <li class=" nav-item">
-	 	  	<router-link to="/contact-us" class="nav-link" :class="isCurrentPage('/contact-us') && 'color1'" >{{select('/contact-us',"&lt; Contacto &sol;&gt;", "Contacto")}}</router-link>
+	 	  	<router-link to='/contact-us' class="nav-link" :class="isCurrentPage('/contact-us') && 'color1'" >{{select('/contact-us',"&lt; Contacto &sol;&gt;", "Contacto")}}</router-link>
 	      </li>
 
 	      <li class=" nav-item">
@@ -29,13 +29,13 @@
                         Cart
                     </button>
             </li>
-
+<!-- 
 
                 <li class="nav-item">
-                    <!-- <a class="nav-link" href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> -->
+                    <a class="nav-link" href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Cerrar sesion
                     </a>
-                </li>
+                </li> -->
 
                 <!-- End auth only -->
 
@@ -110,8 +110,8 @@
                 <!-- @endcan -->
                 <!-- @can('roles.index') Nombre del permiso -->
                 <li class="nav-item">
-                	<router-link to="/roles"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Roles &sol;&gt;", "Roles")}}</router-link>
-                    <!-- <a class="nav-link" href="{{route('roles.index') }}">Roles</a> <Nombre de la ruta--> -->
+                	<router-link to="/roles"  class="nav-link" :class="isCurrentPage('/roles') && 'color1'">{{select('/roles',"&lt; Roles &sol;&gt;", "Roles")}}</router-link>
+                    <!-- <a class="nav-link" href="{{route('roles.index') }}">Roles</a> <Nombre de la ruta--> 
                 </li>
                 <!-- @endcan -->
                 
@@ -119,13 +119,13 @@
                 <!-- @else  -->
 
                     <li class="nav-item">
-                    	<router-link to="/login"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Login &sol;&gt;", "Login")}}</router-link>
+                    	<router-link to="/login"  class="nav-link" :class="isCurrentPage('/login') && 'color1'">{{select('/login',"&lt; Login &sol;&gt;", "Login")}}</router-link>
                         <!-- <a class="nav-link {{ modoActivo( 'login' )}}" href="{{ route('login') }}"> -->
-                            Iniciar sesion
+                           <!--  Iniciar sesion -->
                         </a>
                     </li>
                     <li class="nav-item">
-                    	<router-link to="/register"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Register &sol;&gt;", "Register")}}</router-link>
+                    	<router-link to="/register"  class="nav-link" :class="isCurrentPage('/register') && 'color1'">{{select('/register',"&lt; Register &sol;&gt;", "Register")}}</router-link>
                         <!-- <a class="nav-link {{ modoActivo( 'register' )}}" href="{{ route('register') }}">Registro</a> -->
                     </li>
                 <!-- @endauth -->
@@ -190,8 +190,10 @@
 <style scoped >
 
   .color1 {
-	color: red;
-    border-bottom: 1px solid brown;
+	color: black;
+    border-bottom: 3px solid black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 
   }
   a {

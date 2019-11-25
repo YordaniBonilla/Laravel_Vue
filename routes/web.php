@@ -79,5 +79,5 @@ Route::get('/cartProducts', 'AppstoreController@getProducts');
 //     Route::get('status', 'PaypalController@getPaymentStatus');
 
 // });
-
+ 
 Auth::routes();

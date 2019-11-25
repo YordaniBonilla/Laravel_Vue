@@ -1870,6 +1870,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Contact',
   computed: {
@@ -6693,7 +6704,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.color1[data-v-7cd4f788] {\n\tcolor: red;\n    border-bottom: 1px solid brown;\n}\na[data-v-7cd4f788] {\n    text-decoration: none;\n}\n\n", ""]);
+exports.push([module.i, "\n.color1[data-v-7cd4f788] {\n\tcolor: black;\n    border-bottom: 3px solid black;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n}\na[data-v-7cd4f788] {\n    text-decoration: none;\n}\n\n", ""]);
 
 // exports
 
@@ -38199,9 +38210,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Hello Contactos")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h1", [_vm._v("Hello Contactos")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("otro taco otro taco")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38366,7 +38408,9 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c(
       "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+      {
+        staticClass: "navbar navbar-expand-lg navbar-light bg-light text-dark "
+      },
       [
         _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
           _c("img", { attrs: { src: "/images/Logo.jpg", height: "75px" } })
@@ -38444,12 +38488,6 @@ var render = function() {
               ),
               _vm._v(" "),
               _vm._m(1),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _vm._v(
-                  "\n                        Cerrar sesion\n                    "
-                )
-              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -38567,33 +38605,14 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "nav-link",
-                      class: _vm.isCurrentPage("/") && "color1",
+                      class: _vm.isCurrentPage("/roles") && "color1",
                       attrs: { to: "/roles" }
                     },
-                    [_vm._v(_vm._s(_vm.select("/", "< Roles />", "Roles")))]
-                  ),
-                  _vm._v(" "),
-                  _vm._v(" -->\n                ")
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      class: _vm.isCurrentPage("/") && "color1",
-                      attrs: { to: "/login" }
-                    },
-                    [_vm._v(_vm._s(_vm.select("/", "< Login />", "Login")))]
-                  ),
-                  _vm._v(" "),
-                  _vm._v(
-                    "\n                            Iniciar sesion\n                        "
+                    [
+                      _vm._v(
+                        _vm._s(_vm.select("/roles", "< Roles />", "Roles"))
+                      )
+                    ]
                   )
                 ],
                 1
@@ -38607,12 +38626,35 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "nav-link",
-                      class: _vm.isCurrentPage("/") && "color1",
+                      class: _vm.isCurrentPage("/login") && "color1",
+                      attrs: { to: "/login" }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(_vm.select("/login", "< Login />", "Login"))
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      class: _vm.isCurrentPage("/register") && "color1",
                       attrs: { to: "/register" }
                     },
                     [
                       _vm._v(
-                        _vm._s(_vm.select("/", "< Register />", "Register"))
+                        _vm._s(
+                          _vm.select("/register", "< Register />", "Register")
+                        )
                       )
                     ]
                   )
