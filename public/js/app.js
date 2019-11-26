@@ -2163,6 +2163,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Nav',
   data: function data() {
@@ -2289,6 +2293,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Products',
   data: function data() {
     return {
       productos: [],
@@ -38648,6 +38653,29 @@ var render = function() {
                     [
                       _vm._v(
                         _vm._s(_vm.select("/us", "< Nosotros />", "Nosotros"))
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: " nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      class: _vm.isCurrentPage("/products") && "color1",
+                      attrs: { to: "/products" }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(
+                          _vm.select("/products", "< Products />", "Products")
+                        )
                       )
                     ]
                   )

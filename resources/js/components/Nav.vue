@@ -22,6 +22,10 @@
 	      <li class=" nav-item">
 	 	  	<router-link to="/us" class="nav-link" :class="isCurrentPage('/us') && 'color1'" >{{select('/us',"&lt; Nosotros &sol;&gt;", "Nosotros")}}</router-link>
 	      </li>
+
+        <li class=" nav-item">
+        <router-link to="/products" class="nav-link" :class="isCurrentPage('/products') && 'color1'" >{{select('/products',"&lt; Products &sol;&gt;", "Products")}}</router-link>
+        </li>
            <!-- @auth only -->
 	       <li class="nav-item dropdown ">
                     <button type="button" class="btn btn-primary" data-toggle="modal"
