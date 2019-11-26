@@ -7,6 +7,7 @@ Vue.prototype.axios = axios;
 
 require('./bootstrap');
 
+
 const app = new Vue({
 	el: '#app',
 	components: {
