@@ -5,7 +5,9 @@ import Home from '@/components/Home';
 import Contact from '@/components/Contact';
 import Us from '@/components/Us';
 import Products from '@/components/Products'; 
+
 Vue.use(VueRouter);
+
 const routes = [
   { 
   	path: '/', 
