@@ -82,14 +82,14 @@
 		},
 		methods: {
 			addToCart(routeKey) {
-			    this.axios.post(`/add/${routeKey}`).then(({data}) => {
+			    this.$axios.post(`/add/${routeKey}`).then(({data}) => {
 			    	this.$parent.getCartContent();	
 			    });
 
 			}
 		},
 		mounted() {
-			this.axios.get('/cartProducts').then(({data}) => this.products = data);
+			this.$axios.get('/cartProducts').then(({data}) => this.products = data);
 		}
     }
 </script>

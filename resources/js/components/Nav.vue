@@ -12,19 +12,19 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="nav nav-pills nav-fill">
 	      <li class=" nav-item ">
-	 	  	<router-link to="/"  class="nav-link" :class="isCurrentPage('/') && 'color1'">{{select('/',"&lt; Home &sol;&gt;", "Home")}}</router-link>
+	 	  	<router-link to="/"  class="nav-link" :class="this.$isCurrentPage('/') && 'color1'">{{select('/',"&lt; Home &sol;&gt;", "Home")}}</router-link>
 	      </li>
 
 	      <li class=" nav-item">
-	 	  	<router-link to='/contact-us' class="nav-link" :class="isCurrentPage('/contact-us') && 'color1'" >{{select('/contact-us',"&lt; Contacto &sol;&gt;", "Contacto")}}</router-link>
+	 	  	<router-link to='/contact-us' class="nav-link" :class="this.$isCurrentPage('/contact-us') && 'color1'" >{{select('/contact-us',"&lt; Contacto &sol;&gt;", "Contacto")}}</router-link>
 	      </li>
 
 	      <li class=" nav-item">
-	 	  	<router-link to="/us" class="nav-link" :class="isCurrentPage('/us') && 'color1'" >{{select('/us',"&lt; Nosotros &sol;&gt;", "Nosotros")}}</router-link>
+	 	  	<router-link to="/us" class="nav-link" :class="this.$isCurrentPage('/us') && 'color1'" >{{select('/us',"&lt; Nosotros &sol;&gt;", "Nosotros")}}</router-link>
 	      </li>
 
         <li class=" nav-item">
-        <router-link to="/products" class="nav-link" :class="isCurrentPage('/products') && 'color1'" >{{select('/products',"&lt; Products &sol;&gt;", "Products")}}</router-link>
+        <router-link to="/products" class="nav-link" :class="this.$isCurrentPage('/products') && 'color1'" >{{select('/products',"&lt; Products &sol;&gt;", "Products")}}</router-link>
         </li>
            <!-- @auth only -->
 	       <li class="nav-item dropdown ">
@@ -114,7 +114,7 @@
                 <!-- @endcan -->
                 <!-- @can('roles.index') Nombre del permiso -->
                 <li class="nav-item">
-                	<router-link to="/roles"  class="nav-link" :class="isCurrentPage('/roles') && 'color1'">{{select('/roles',"&lt; Roles &sol;&gt;", "Roles")}}</router-link>
+                	<router-link to="/roles"  class="nav-link" :class="this.$isCurrentPage('/roles') && 'color1'">{{select('/roles',"&lt; Roles &sol;&gt;", "Roles")}}</router-link>
                     <!-- <a class="nav-link" href="{{route('roles.index') }}">Roles</a> <Nombre de la ruta--> 
                 </li>
                 <!-- @endcan -->
@@ -123,13 +123,13 @@
                 <!-- @else  -->
 
                     <li class="nav-item">
-                    	<router-link to="/login"  class="nav-link" :class="isCurrentPage('/login') && 'color1'">{{select('/login',"&lt; Login &sol;&gt;", "Login")}}</router-link>
+                    	<router-link to="/login"  class="nav-link" :class="this.$isCurrentPage('/login') && 'color1'">{{select('/login',"&lt; Login &sol;&gt;", "Login")}}</router-link>
                         <!-- <a class="nav-link {{ modoActivo( 'login' )}}" href="{{ route('login') }}"> -->
                            <!--  Iniciar sesion -->
                         </a>
                     </li>
                     <li class="nav-item">
-                    	<router-link to="/register"  class="nav-link" :class="isCurrentPage('/register') && 'color1'">{{select('/register',"&lt; Register &sol;&gt;", "Register")}}</router-link>
+                    	<router-link to="/register"  class="nav-link" :class="this.$isCurrentPage('/register') && 'color1'">{{select('/register',"&lt; Register &sol;&gt;", "Register")}}</router-link>
                         <!-- <a class="nav-link {{ modoActivo( 'register' )}}" href="{{ route('register') }}">Registro</a> -->
                     </li>
                 <!-- @endauth -->
@@ -156,14 +156,8 @@
             }
         },
 		methods: {
-          isCurrentPage: function(url) {
-    	    if(this.$route.path == url) {
-        	  return true
-        	} 
-          	return false
-          },
           select(path,ifCorrect,defaultOption) {
-    			if(this.isCurrentPage(path)) {
+    			if(this.$isCurrentPage(path)) {
     				return ifCorrect;
     			}
     			return defaultOption;
